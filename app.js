@@ -1,5 +1,5 @@
 (function () {
-    var template = '<div style="all:initial;position:fixed;z-index:2147483647;top:55px;right:8px;background:#fff;display:flex;align-items:center"><input class="__app_timeInput" type="number" maxlength="2" style="all:initial;max-width:36px;padding:1px 2px;border:1px inset #767676"> <input class="__app_startStopButton" type="button" style="all:initial;padding:3px 8px;border:none;border-radius:8px;margin:0 3px;color:#fff;background-color:#04aa6d"><div class="__app_closeButton" title="Close Pomodoro" style="width:10px;height:10px;border:3px solid red;border-radius:100%;background:linear-gradient(-45deg,transparent 45%,#fff 45%,#fff 55%,transparent 55%),linear-gradient(45deg,transparent 45%,#fff 45Q,#fff 55%,transparent 55%),linear-gradient(45deg,transparent 46%,#fff 46%,#fff 56%,transparent 56%);background-color:red;cursor:pointer"></div></div>';
+    var template = '<div style="all:initial;position:fixed;z-index:2147483647;top:55px;right:8px;background:#fff;display:flex;align-items:center"><input id="_pomTimeInput" type="number" maxlength="2" style="all:initial;max-width:36px;padding:1px 2px;border:1px inset #767676"> <input id="_pomStartStopButton" type="button" style="all:initial;padding:3px 8px;border:none;border-radius:8px;margin:0 3px;color:#fff;background-color:#04aa6d"><div id="_pomCloseButton" title="Close Pomodoro" style="width:10px;height:10px;border:3px solid red;border-radius:100%;background:linear-gradient(-45deg,transparent 45%,#fff 45%,#fff 55%,transparent 55%),linear-gradient(45deg,transparent 45%,#fff 45Q,#fff 55%,transparent 55%),linear-gradient(45deg,transparent 46%,#fff 46%,#fff 56%,transparent 56%);background-color:red;cursor:pointer"></div></div>';
     var state = Object.freeze({
         setTime: 1,
         running: 2
@@ -29,9 +29,9 @@
 
         // Save refs to DOM elements
         _appResources.domElements.containerDiv = container;
-        _appResources.domElements.timeInput = container.getElementsByClassName("__app_timeInput")[0];
-        _appResources.domElements.startStopButton = container.getElementsByClassName("__app_startStopButton")[0];
-        _appResources.domElements.closeButton = container.getElementsByClassName("__app_closeButton")[0];
+        _appResources.domElements.timeInput = container.querySelector("#_pomTimeInput");
+        _appResources.domElements.startStopButton = container.querySelector("#_pomStartStopButton");
+        _appResources.domElements.closeButton = container.querySelector("#_pomCloseButton");
 
         // Wire events
         _appResources.domElements.timeInput.addEventListener("change", onChangeTime);
