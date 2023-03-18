@@ -1,5 +1,5 @@
 (function () {
-    var template = '<div style="all:initial;position:fixed;z-index:2147483647;top:55px;right:8px;background:white;"><input type="number" maxlength="2" style="all:initial;max-width:36px;padding:1px 2px;border:1px inset #767676;" /><input type="button" style="all:initial;padding:1px 6px;border:1px inset #767676;margin:0px 3px;background-color:#efefef;" /><a href="javascript:void(0)" title="Close" style="all:initial;cursor:pointer;text-decoration:underline;color:#0000EE;">x</a></div>';
+    var template = '<div style="all:initial;position:fixed;z-index:2147483647;top:55px;right:8px;background:#fff"><input class="__app_timeInput" type="number" maxlength="2" style="all:initial;max-width:36px;padding:1px 2px;border:1px inset #767676"> <input class="__app_startStopButton" type="button" style="all:initial;padding:1px 6px;border:1px inset #767676;margin:0 3px;background-color:#efefef"> <a class="__app_closeAnchor" href="javascript:void(0)" title="Close" style="all:initial;cursor:pointer;text-decoration:underline;color:#00e">x</a></div>';
     var state = Object.freeze({
         setTime: 1,
         running: 2
@@ -29,9 +29,9 @@
 
         // Save refs to DOM elements
         _appResources.domElements.containerDiv = container;
-        _appResources.domElements.timeInput = container.childNodes[0];
-        _appResources.domElements.startStopButton = container.childNodes[1];
-        _appResources.domElements.closeAnchor = container.childNodes[2];
+        _appResources.domElements.timeInput = container.getElementsByClassName("__app_timeInput")[0];
+        _appResources.domElements.startStopButton = container.getElementsByClassName("__app_startStopButton")[0];
+        _appResources.domElements.closeAnchor = container.getElementsByClassName("__app_closeAnchor")[0];
 
         // Wire events
         _appResources.domElements.timeInput.addEventListener("change", onChangeTime);

@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "build": "node node-scripts/build.js",
+    "inject-template": "node node-scripts/injectTemplate.js"
+  },
+  "devDependencies": {
+    "minify": "^6.0.1"
+  }
+}
