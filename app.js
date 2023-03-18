@@ -1,5 +1,5 @@
 (function () {
-    var template = '<div style="all:initial;position:fixed;z-index:2147483647;top:55px;right:8px;background:#fff"><input class="__app_timeInput" type="number" maxlength="2" style="all:initial;max-width:36px;padding:1px 2px;border:1px inset #767676"> <input class="__app_startStopButton" type="button" style="all:initial;padding:1px 6px;border:1px inset #767676;margin:0 3px;background-color:#efefef"> <a class="__app_closeAnchor" href="javascript:void(0)" title="Close" style="all:initial;cursor:pointer;text-decoration:underline;color:#00e">x</a></div>';
+    var template = '<div style="all:initial;position:fixed;z-index:2147483647;top:55px;right:8px;background:#fff;display:flex;align-items:center"><input class="__app_timeInput" type="number" maxlength="2" style="all:initial;max-width:36px;padding:1px 2px;border:1px inset #767676"> <input class="__app_startStopButton" type="button" style="all:initial;padding:3px 8px;border:none;border-radius:8px;margin:0 3px;color:#fff;background-color:#04aa6d"><div class="__app_closeButton" title="Close Pomodoro" style="width:10px;height:10px;border:3px solid red;border-radius:100%;background:linear-gradient(-45deg,transparent 45%,#fff 45%,#fff 55%,transparent 55%),linear-gradient(45deg,transparent 45%,#fff 45Q,#fff 55%,transparent 55%),linear-gradient(45deg,transparent 46%,#fff 46%,#fff 56%,transparent 56%);background-color:red;cursor:pointer"></div></div>';
     var state = Object.freeze({
         setTime: 1,
         running: 2
@@ -17,7 +17,7 @@
             containerDiv: null,
             timeInput: null,
             startStopButton: null,
-            closeAnchor: null
+            closeButton: null
         },
         timeoutHandler: null,
         intervalHandler: null
@@ -31,12 +31,12 @@
         _appResources.domElements.containerDiv = container;
         _appResources.domElements.timeInput = container.getElementsByClassName("__app_timeInput")[0];
         _appResources.domElements.startStopButton = container.getElementsByClassName("__app_startStopButton")[0];
-        _appResources.domElements.closeAnchor = container.getElementsByClassName("__app_closeAnchor")[0];
+        _appResources.domElements.closeButton = container.getElementsByClassName("__app_closeButton")[0];
 
         // Wire events
         _appResources.domElements.timeInput.addEventListener("change", onChangeTime);
         _appResources.domElements.startStopButton.addEventListener("click", onStartStopClick);
-        _appResources.domElements.closeAnchor.addEventListener("click", onCloseClick);
+        _appResources.domElements.closeButton.addEventListener("click", onCloseClick);
 
         setState(defaultAppState);
     }
@@ -73,7 +73,7 @@
         clearInterval(_appResources.intervalHandler);
         _appResources.domElements.timeInput.removeEventListener("change", onChangeTime);
         _appResources.domElements.startStopButton.removeEventListener("click", onStartStopClick);
-        _appResources.domElements.closeAnchor.removeEventListener("click", onCloseClick);
+        _appResources.domElements.closeButton.removeEventListener("click", onCloseClick);
         _appResources.domElements.containerDiv.remove();
 
         _appResources = null;
