@@ -157,15 +157,15 @@
     function formatTimeMinSec(fullSeconds) {
         var time = [];
 
-        var minutes = Math.floor(fullSeconds / 60);
-        if (minutes > 0) {
-            time.push(minutes)
+        var mins = Math.floor(fullSeconds / 60);
+        if (mins > 0) {
+            time.push(mins);
             time.push("minutes");
         }
 
-        var seconds = fullSeconds % 60;
-        if (seconds > 0) {
-            time.push(seconds)
+        var secs = fullSeconds % 60;
+        if (secs > 0) {
+            time.push(secs);
             time.push("seconds");
         }
 
