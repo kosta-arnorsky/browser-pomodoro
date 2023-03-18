@@ -49,13 +49,18 @@
     function render() {
         switch (_appState.state) {
             case state.setTime:
+                _appResources.domElements.containerDiv.removeAttribute("title");
                 _appResources.domElements.timeInput.value = _appState.minutes.toString();
                 _appResources.domElements.timeInput.removeAttribute("disabled");
                 _appResources.domElements.startStopButton.setAttribute("value", "Start");
                 break;
             case state.running:
-                var minutesLeft = _appState.minutes
-                    - convertMillisecondsToMinutes(Date.now() - _appState.setAt);
+                var timePassed = Date.now() - _appState.setAt;
+
+                var secondsLeft = _appState.minutes * 60 - convertMillisecondsToSeconds(timePassed);
+                _appResources.domElements.containerDiv.setAttribute("title", formatTimeMinSec(secondsLeft) + " left");
+
+                var minutesLeft = _appState.minutes - convertMillisecondsToMinutes(timePassed);
                 _appResources.domElements.timeInput.value = minutesLeft.toString();
                 _appResources.domElements.timeInput.setAttribute("disabled", "disabled");
                 _appResources.domElements.startStopButton.setAttribute("value", "Stop");
@@ -91,7 +96,7 @@
         switch (_appState.state) {
             case state.setTime:
                 _appResources.timeoutHandler = setTimeout(onTimeout, convertMinutesToMilliseconds(_appState.minutes));
-                _appResources.intervalHandler = setInterval(onInterval, 5 * 1000);
+                _appResources.intervalHandler = setInterval(onInterval, 1000);
 
                 var newState = {
                     state: state.running,
@@ -149,8 +154,30 @@
         return minutes;
     }
 
+    function formatTimeMinSec(fullSeconds) {
+        var time = [];
+
+        var minutes = Math.floor(fullSeconds / 60);
+        if (minutes > 0) {
+            time.push(minutes)
+            time.push("minutes");
+        }
+
+        var seconds = fullSeconds % 60;
+        if (seconds > 0) {
+            time.push(seconds)
+            time.push("seconds");
+        }
+
+        return time.join(" ");
+    }
+
     function convertMinutesToMilliseconds(minutes) {
         return minutes * 60 * 1000;
+    }
+
+    function convertMillisecondsToSeconds(milliseconds) {
+        return Math.floor(milliseconds / 1000);
     }
 
     function convertMillisecondsToMinutes(milliseconds) {

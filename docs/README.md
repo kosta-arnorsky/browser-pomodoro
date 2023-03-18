@@ -1,5 +1,5 @@
 #### Source Code and Building
-All Pomodoro appication code lives in [app.js](../app.js). To facilitate testing there is [test.html](../test.html) page that includes app.js as a script. To test a change, edit app.js, open or reload test.html in a browser and test your change.
+All Pomodoro appication code lives in [app.js](../app.js). To facilitate testing there is [test.html](../test.html) page that includes app.js as a script. To test a change, edit app.js, open or reload the test.html page in a browser and test your change.
 
 Code is intentionally kept simple, uses only ES3 JavaScript, and doesn't use any libraries.
 
