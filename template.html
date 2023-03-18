@@ -1,5 +1,15 @@
-<div style="all:initial;position:fixed;z-index:2147483647;top:55px;right:8px;background:white;display:flex;align-items:center;">
-    <input id="_pomTimeInput" type="number" maxlength="2" style="all:initial;max-width:36px;padding:1px 2px;border:1px inset #767676;" />
-    <input id="_pomStartStopButton" type="button" style="all:initial;padding:3px 8px;border:none;border-radius:8px;margin:0px 3px;color:white;background-color:#04AA6D;" />
-    <div id="_pomCloseButton" title="Close Pomodoro" style="width:10px;height:10px; border:3px solid red;border-radius:100%;background:linear-gradient(-45deg,transparent 45%,#fff 45%,#fff 55%,transparent 55%),linear-gradient(45deg,transparent 45%,#fff 45Q,#fff 55%,transparent 55%),linear-gradient(45deg,transparent 46%,white 46%,white 56%,transparent 56%);background-color:red;cursor:pointer;"></div>
+<div
+    style="all:initial;position:fixed;z-index:2147483647;top:55px;right:8px;background:white;display:flex;align-items:center;">
+    <div id="_pomSetTime">
+        <input id="_pomTimeInput" type="number" maxlength="2"
+            style="all:initial;max-width:36px;padding:1px 2px;border:1px inset #767676;" />
+        <input id="_pomStartButton" type="button" value="Start"
+            style="all:initial;padding:3px 8px;border:none;border-radius:8px;margin:0px 3px;color:white;background-color:#04AA6D;" />
+    </div>
+    <div id="_pomRunning"
+        style="display:none;width:20px;height:20px;border:3px solid #04AA6D;border-radius:100%;background-color:#04AA6D;">
+    </div>
+    <div id="_pomCloseButton" title="Close Pomodoro"
+        style="width:10px;height:10px;border:3px solid red;border-radius:100%;background:linear-gradient(-45deg,transparent 45%,#fff 45%,#fff 55%,transparent 55%),linear-gradient(45deg,transparent 45%,#fff 45Q,#fff 55%,transparent 55%),linear-gradient(45deg,transparent 46%,white 46%,white 56%,transparent 56%);background-color:red;cursor:pointer;">
+    </div>
 </div>
