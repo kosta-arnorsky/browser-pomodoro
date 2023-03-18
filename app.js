@@ -1,5 +1,5 @@
 (function () {
-    var template = '<div style="position:absolute;top:55px;right:8px;"><input type="number" maxlength="2" style="max-width:36px;" /><input type="button" /><a href="javascript:void(0)" title="Close">x</a></div>';
+    var template = '<div style="all:initial;position:fixed;z-index:2147483647;top:55px;right:8px;background:white;"><input type="number" maxlength="2" style="all:initial;max-width:36px;padding:1px 2px;border:1px inset #767676;" /><input type="button" style="all:initial;padding:1px 6px;border:1px inset #767676;margin:0px 3px;background-color:#efefef;" /><a href="javascript:void(0)" title="Close" style="all:initial;cursor:pointer;text-decoration:underline;color:#0000EE;">x</a></div>';
     var state = Object.freeze({
         setTime: 1,
         running: 2
