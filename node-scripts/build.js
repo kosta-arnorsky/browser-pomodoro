@@ -7,4 +7,6 @@ minify("app.js")
 
 function saveBundle(minifiedApp) {
     fs.writeFileSync("bundle.js", "javascript: " + minifiedApp);
+
+    console.log("bundle.js has been updated with the latest changes")
 }

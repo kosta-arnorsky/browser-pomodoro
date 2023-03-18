@@ -20,4 +20,6 @@ function injectTemplate(minifiedTemplate) {
     appSourceCode = appSourceCode.replace(/var template = '[^']+';/, "var template = '" + minifiedTemplate + "';");
 
     fs.writeFileSync("app.js", appSourceCode);
+
+    console.log("app.js \"template\" variable has been updated with the latest changes")
 }
